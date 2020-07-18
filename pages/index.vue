@@ -28,7 +28,20 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Landing',
+  async asyncData ({ params, $axios }) {
+    try {
+      let user = await $axios.$get('/users/user');
+      return {
+        user
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    
+  }
+}
 </script>
 
 <style>
