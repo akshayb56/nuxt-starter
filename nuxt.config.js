@@ -30,6 +30,14 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
     link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
@@ -83,7 +91,7 @@ export default {
       enabled: process.env.NODE_ENV === 'production'
     }),
     bodyParser.json(),
-    '~/server/api/index'
+    '~/api/index'
   ],
   
   /*
