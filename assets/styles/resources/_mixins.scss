@@ -1,0 +1,75 @@
+@mixin scrollbarFormat($width: 1.5vw, $border: 0.3vw, $thumb: $primary, $background: $primary-03){
+  &::-webkit-scrollbar { //The background of the bar itself
+    background-color: $background;
+    @include desk(
+      'height', $width,
+      'width', $width
+    );
+  }
+  
+  // &::-webkit-scrollbar-button { //The directional buttons on the scrollbar
+  // }
+  
+  &::-webkit-scrollbar-track { // The empty space “below” the progress bar
+    background-color: $background;
+    @include desk(
+      'border-radius', ($width/2),
+      '-webkit-border-radius', ($width/2)
+    );
+  }
+  
+  // &::-webkit-scrollbar-track-piece { // The top-most layer of the the progress bar not covered by the thumb
+  // }
+
+  &::-webkit-scrollbar-thumb { // The draggable scrolling element resizes depending on the size of the scrollable element
+    background-clip: padding-box;
+    background-color: $thumb;
+    @include desk(
+      'border', $border solid rgba(0, 0, 0, 0),
+      'border-radius', ($width/2)
+    );
+  }
+
+  // &::-webkit-scrollbar-corner { // The bottom corner of the scrollable element, where two scrollbar meet
+  // }
+  
+  // &::-webkit-resizer { // The draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements
+  // }
+}
+
+@mixin transition($duration: 300ms, $property: all){
+  // transition: $property $duration cubic-bezier(.25,.8,.25,1);
+  transition: $property $duration ease-in-out;
+}
+
+@mixin grayscale($percentage) {
+  filter: none;
+  -webkit-filter: grayscale($percentage);
+  -moz-filter:    grayscale($percentage);
+  -ms-filter:     grayscale($percentage);
+  -o-filter:      grayscale($percentage);
+}
+
+@mixin ripple-animation($color: rgb(245, 245, 245)) {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  &:before {
+    background-color: $color;
+    border-radius: 50%;
+    content: '';
+    left: 50%;
+    opacity: 0;
+    padding: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 500ms, opacity 500ms;
+  }
+
+  &:active:before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0s;
+  }
+}

@@ -1,0 +1,31 @@
+$xsWidth: 320px;
+$smWidth: 768px;
+$mdWidth: 1024px;
+$lgWidth: 1366px;
+$xlWidth: 1920px;
+
+$spacer: 2vw !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$spacers: (zero: (x: 0,
+    y: 0,
+  ),
+  one: (x: $spacer-x * 0.5,
+    y: $spacer-y * 0.5,
+  ),
+  two: (x: $spacer-x,
+    y: $spacer-y,
+  ),
+  three: (x: $spacer-x * 1.5,
+    y: $spacer-y * 1.5,
+  ),
+  four: (x: $spacer-x * 2,
+    y: $spacer-y * 2,
+  ),
+  five: (x: $spacer-x * 2.5,
+    y: $spacer-y * 2.5,
+  ),
+  six: (x: $spacer-x * 3,
+    y: $spacer-y * 3,
+  ),
+) !default;

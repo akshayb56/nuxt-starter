@@ -1,0 +1,18 @@
+@function strip-unit($number) {
+  @if type-of($number)=='number'and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function scale-prop($prop) {
+  @if type-of($prop)=='number'and unit($prop)=='vw' {
+    @return #{strip-unit($scaling-factor-x*$prop)+'px'};
+  }
+
+  @if type-of($prop)=='number'and unit($prop)=='vh' {
+    @return #{strip-unit($scaling-factor-y*$prop)+'px'};
+  }
+
+  @return $prop;
+}
